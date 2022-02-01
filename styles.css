@@ -1,0 +1,110 @@
+/* CSS for project one- group one */
+
+.row {
+    width: 800px;
+    margin: auto;
+    border: 5px dotted #8E0C3A;
+}
+
+.column {
+  float: left;
+  width: 386px;
+  border: 2px dotted #FFC627;
+  margin: 5px;
+  background-color: bisque;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+body {  
+    min-width: 600px;
+    background-image: url("asu-gradient-background.png");
+    margin-top: 5mm;
+}
+
+#userimg {
+    margin-top: 5mm;
+    margin-left: 143px;
+}
+
+h4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+    margin-left: 4mm;
+}
+
+h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 2mm;
+    margin-bottom: 2mm;
+    margin-left: 2mm;
+}
+
+label {
+    padding: 2mm;
+    margin-bottom: 4mm;
+    
+}
+select {
+    width: 91mm;
+    margin: 4px;
+}
+
+#logout {
+    transform: translate(270%);
+    margin-bottom: 1mm;
+}
+
+.postfeed {
+    margin: 2mm;
+    border: 2px dashed #8E0C3A;
+    padding: 2mm;
+}
+
+#issue {
+    width: 89mm;
+    margin: 4px;
+}
+
+.userpost {
+    margin: 2mm;
+    border: 2px dashed #8E0C3A;
+    padding: 2mm;
+}
+
+#feedback {
+    width: 90mm;
+    height: 30mm;
+    margin: 4px;
+    word-break: break-all;
+
+}
+
+#deptselect {
+    margin-top: 10px;
+    text-align: center;
+  
+}
+#sortbutton {
+    margin-top: 5px;
+    width: 200px;
+}
+
+#postsubmission{
+    margin: 2mm;
+    border: 2px dashed #8E0C3A;
+    padding: 2mm;
+}
+
+#submitpostbutton{
+    margin-left: 3px;
+    width: 92mm;
+}
