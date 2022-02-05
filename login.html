@@ -6,10 +6,13 @@
         <meta charset="UTF-8">
         <title>Feedback Collection Login</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="">    
+        <link rel="stylesheet" href="">
+        <script type="text/javascript" src="scripts.js"></script>    
     </head>
 
 <style>
+
+
 
 body {  
     min-width: 400px;
@@ -18,32 +21,122 @@ body {
 }
 
 .login{
-    margin: auto;
-    width: 350px;
-    height: 200px;
-    border: 2px solid black;
-    border-radius: 10%;
-    padding: 5px;
-    background-color: rgb(161, 161, 161);
+    text-align: center;
+    width: 325px;
+    height: 172px;
+    padding: 15px;
+    background-color: bisque;  
+    margin-top: 2mm;
+    margin-left: 2mm;
 }
 
-label{
-    padding-top: 50mm;
-    margin-left: 40px;
+.loginborder{
+    margin: auto;
+    width: 370px;
+    height: 220px;
+    border: 5px dotted #8E0C3A;
+}
+
+.login button{
+    transition-duration: 0.4s;
+    margin-left: 7mm;
+
+}
+
+.login button:hover{
+    background-color: #8E0C3A;
+    color: white;
+
+}
+
+.createaccount{
+    text-align: center;
+    width: 425px;
+    height: 272px;
+    padding: 15px;
+    background-color: bisque;  
+    margin-top: 2mm;
+    margin-left: 2mm;
+    
+}
+
+#createaccountborder{
+    margin: auto;
+    width: 472px;
+    height: 320px;
+    border: 5px dotted #8E0C3A;
+    margin-top: 8mm;
+    visibility: hidden;
+    position: relative;
+    top: -322px;
+    /* left: -30px; */
+    
+}
+
+.createaccount button{
+    transition-duration: 0.4s;
+    margin-left: 3mm;
+    
+}
+
+.createaccount button:hover{
+    background-color: #8E0C3A; 
+    color: white;
+    
 }
 
 
 </style>
 
-<script src=""></script>
+
 
 <body>
 
 
 
-<div class="login">
-    <label for="referral">Referral Code:</label>
-    <input type="text" id="referral" name="referral">
+<div class="loginborder">
+    <div class="login">
+        <h3>Actionable Feedback Collector</h3>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <br><br>
+            <label for="password">Password:</label>
+            <input style="margin-left: 4px;" type="text" id="password" name="password">
+            <br><br>
+            <button type="button" onclick="loadLandingPage()">Login</button>
+
+            <button type="button" onclick="openCreateAccount()">Create an Account</button>
+        </form>
+
+    </div>
+</div>
+
+<div id="createaccountborder">
+    <div class="createaccount">
+        <button onclick="closeCreateAccount()" style="float: right;">X</button>
+        <h3>Create an Account to Leave Feedback</h3>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <br><br>
+            <label for="password">Password:</label>
+            <input style="margin-left: 4px;" type="text" id="password" name="password">
+
+            <br><br>
+
+            <label for="firstname">First name:</label>
+            <input type="text" id="firstname" name="firstname">
+            <br><br>
+            <label for="lastname">Last name:</label>
+            <input type="text" id="lastname" name="lastname">
+            <br><br><br>
+        
+
+            <button type="button" onclick="createAccount()">Create an Account</button>
+        </form>
+
+    </div>
 </div>
 
 </body>

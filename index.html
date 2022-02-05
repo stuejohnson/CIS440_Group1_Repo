@@ -5,36 +5,52 @@
 <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <title>Feedbck Collector</title>
+    <title>Feedback Collector</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <script type="text/javascript" src="scripts.js"></script>
     </head>
 
-<script src=""></script>
+
 
 <body>
 
+
+
+
+
 <div class="row">
-    <div class="column">
-        <div id="userwelcome">
+    <button onclick="loadLandingPage()"><img src="homeicon.png" id="homeimg" width="50" height="50" alt="To Home" ></button>
 
-            <img src="UserIcon.png" id="userimg" width= "80" height= "80" alt="user icon"/>
-            <h3 style="text-align: center">Logged in as, {Referral code}</h3>
 
-            <button id="logout" type="button">Logout</button>
+    <div class="departmentselect">
+        <button >ALL</button>
+        <button>Finance</button>
+        <button>Human Resources</button>
+        <button>Information Technology</button>
+        <button>Marketing</button>
+        <button>Operations</button>
+    </div>
 
-            <h4 style="text-align: left">My Posts:</h4>
+
+
+    <div class="leftcolumn">
+        <div id="userinfo">
+
+            <img id="userlogo" src="UserIcon.png" id="userimg" width= "80" height= "80" alt="user icon"/>
+            <h3 style="text-align: center">Logged in as, {firstName, lastName}</h3>
+
+            <button id="logout" type="button" onclick="loadLoginPage()">Logout</button>
+            <button id="resetPassword" type="button">Reset Password</button>
             
-            <div class="userpost">
-                <p>Placeholder for current Users posts</p>
-            </div>
-            <div class="userpost">
-                <p>Placeholder for current Users posts</p>
-            </div>
-
+            <p class="anonymousstatement">We want to assure you that your responses are <b><i>completely anonymous</i></b>. Responses on this anonymous forum cannot be traced back to the respondent.</p> 
+            <p class="anonymousstatement">No personally identifiable information is captured unless you voluntarily offer personal or contact information in any of the comment fields.</p>
+            
+            <!-- Post submission Div, Saving for pop out window.  -->
+            <!--
             <h4 style="text-align: left"> Create a Post:</h4>
 
-            <div id="postsubmission">
+                <div id="postsubmission">
 
                 <label  for="dept">Which department are you apart of?</label>
 
@@ -55,7 +71,7 @@
 
                 <button id="submitpostbutton" onclick="post">Submit Post</button>
 
-            </div>
+            </div> -->
 
         </div>
 
@@ -63,8 +79,10 @@
     </div>
     
     
-    <div class="column">
-        <div id="deptselect">
+    <div class="rightcolumn">
+
+
+        <!-- <div id="deptselect">
             <input type="checkbox" id="finance" name="finance" value="Finance" checked>
             <label for="Finance"> Finance</label>
             <input type="checkbox" id="humanresources" name="humanresources" value="Human Resources" checked>
@@ -79,16 +97,16 @@
 
             <button id="sortbutton" onclick="short"> Sort</button>
 
-        </div>
+        </div> -->
 
         <div class="postfeed">
-            <h2>Placeholder for All users feedback-feed.</h2>
+            <h5>Placeholder for All users feedback-feed.</h5>
         </div>
         <div class="postfeed">
-            <h2>Placeholder for All users feedback-feed.</h2>
+            <h5>Placeholder for All users feedback-feed.</h5>
         </div>
         <div class="postfeed">
-            <h2>Placeholder for All users feedback-feed.</h2>
+            <h5>Placeholder for All users feedback-feed.</h5>
         </div>
     </div>
 

@@ -4,23 +4,39 @@
     width: 800px;
     margin: auto;
     border: 5px dotted #8E0C3A;
+    padding: 8px;
 }
 
-.column {
-  float: left;
-  width: 386px;
-  border: 2px dotted #FFC627;
-  margin: 5px;
-  background-color: bisque;
+.leftcolumn {
+    float: left;
+    width: 389px;
+    border: 2px dotted #FFC627;
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: bisque;
+    height: 120mm;
+}
+
+.rightcolumn {
+    float: left;
+    width: 387px;
+    border: 2px dotted #FFC627;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background-color: bisque;
 }
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
+#userinfo {
+    margin-top: 5mm;
+}
 
 body {  
     min-width: 600px;
@@ -33,9 +49,12 @@ body {
     margin-left: 143px;
 }
 
+h5 {
+    padding-top: 1mm;;
+}
+
 h4 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     margin-top: 5mm;
     margin-bottom: 2mm;
     margin-left: 4mm;
@@ -58,15 +77,77 @@ select {
     margin: 4px;
 }
 
-#logout {
-    transform: translate(270%);
+.anonymousstatement {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: medium;
+    margin-top: 3;
+    margin-right: 8mm;
+    margin-left: 8mm;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#resetPassword {
+    transform: translate(120%);
     margin-bottom: 1mm;
+    margin-top: 2mm;
+}
+
+#logout {
+    transform: translate(160%);
+    margin-bottom: 1mm;
+    margin-top: 2mm;
+}
+
+#homeimage{
+    float: left;
+    
+}
+
+#userlogo{
+    padding-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.departmentselect {
+    border: 2px dotted #FFC627;
+    width: 717px;
+    height: 47px;
+    
+    float: right;
+    background-color: bisque;
+    padding: 1mm;
+}
+
+#userinfo button{
+    transition-duration: 0.4s;
+    
+}
+#userinfo button:hover{
+    background-color: #8E0C3A; /* Green */
+    color: white;
+}
+
+.departmentselect button{
+    transition-duration: 0.4s;
+    margin-top: 4mm;
+    margin-left: 3mm;
+    margin-right: 3mm;
+    
+
+}
+
+.departmentselect button:hover{
+    background-color: #8E0C3A; /* Green */
+    color: white;
 }
 
 .postfeed {
     margin: 2mm;
     border: 2px dashed #8E0C3A;
-    padding: 2mm;
+    padding-left: 3mm;
 }
 
 #issue {
