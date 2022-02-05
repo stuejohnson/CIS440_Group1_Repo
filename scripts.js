@@ -19,4 +19,21 @@ function openCreateAccount(){
 function closeCreateAccount(){
     var node = document.getElementById('createaccountborder')
     node.style.visibility = 'hidden';
+} 
+
+function upvote() {
+    console.log("Upvote recognized")
+}
+
+function downvote() {
+    console.log("downvote recognized")
+}
+
+function deletepost() {
+    var postfeed = document.getElementsByClassName("postfeed");
+    for (var i=0; i <postfeed.length; i++) {
+        postfeed[i].addEventListener('click', function() {
+            this.parentNode.remove();
+        });
+    }
 }
