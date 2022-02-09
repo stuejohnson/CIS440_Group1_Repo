@@ -1,14 +1,14 @@
 /* CSS for project one- group one */
 
 .row {
-    width: 800px;
+    width: 100%;
     margin: auto;
-    border: 5px dotted #8E0C3A;
+    border: none;
 }
 
 .column {
   float: left;
-  width: 386px;
+  width: 8.3333%;
   border: 2px dotted #FFC627;
   margin: 5px;
   background-color: bisque;
@@ -115,8 +115,8 @@ select {
 }
 
 #homeRibbon {
-    background-color: green;
-    height:             5%;
+    background-color: lightgreen;
+    padding:5px;
 }
 
 .ribbonButtons:hover {
@@ -130,10 +130,6 @@ select {
     margin: 0;
     padding: 0;
     cursor: pointer;
-}
-
-.row {
-    border: none;
 }
 
 #feed{
@@ -162,9 +158,9 @@ select {
 
 #postTitle {
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 14pt;
 }
 
 #postInfo {
-    font-size: 10pt;
+    font-size: 12pt;
 }

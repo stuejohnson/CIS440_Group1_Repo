@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Creation Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+    <div id="postsubmission">
+
+        <label  for="dept">Which department are you apart of?</label>
+
+        <select name="dept" id="dept">
+        <option style="display:none;">Select a Deptartment</option>
+        <option value="finance">Finance</option>
+        <option value="humanresources">Human Resources</option>
+        <option value="informationtechnology">Information Technology</option>
+        <option value="marketing">Marketing</option>
+        <option value="operations">Operations</option>
+        </select>
+
+        <label for="issue">What is the main issue at hand?</label>
+        <input type="text" id="issue" name="issue">
+
+        <label for="feedback">What is a solution that may resolve the issue?</label>
+        <textarea style="resize: none" id="feedback" name="feedback" rows="5" cols="100"></textarea>
+
+        <button id="submitpostbutton" onclick="post">Submit Post</button>
+
+    </div>
+</body>
+</html>
