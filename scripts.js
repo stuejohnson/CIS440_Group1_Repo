@@ -8,7 +8,11 @@ function logOut(){
     //TODO
 }
 
-function createPost(){
+function createPostPage(){
     console.log("loading create Post Page");
     window.location.href = "createPost.html";
+}
+
+function submitPost(){
+    // TODO
 }

@@ -14,12 +14,12 @@
         <label  for="dept">Which department are you apart of?</label>
 
         <select name="dept" id="dept">
-        <option style="display:none;">Select a Deptartment</option>
-        <option value="finance">Finance</option>
-        <option value="humanresources">Human Resources</option>
-        <option value="informationtechnology">Information Technology</option>
-        <option value="marketing">Marketing</option>
-        <option value="operations">Operations</option>
+            <option style="display:none;">Select a Deptartment</option>
+            <option value="finance">Finance</option>
+            <option value="humanresources">Human Resources</option>
+            <option value="informationtechnology">Information Technology</option>
+            <option value="marketing">Marketing</option>
+            <option value="operations">Operations</option>
         </select>
 
         <label for="issue">What is the main issue at hand?</label>
@@ -28,7 +28,7 @@
         <label for="feedback">What is a solution that may resolve the issue?</label>
         <textarea style="resize: none" id="feedback" name="feedback" rows="5" cols="100"></textarea>
 
-        <button id="submitpostbutton" onclick="post">Submit Post</button>
+        <button id="submitpostbutton" onclick="submitPost()">Submit Post</button>
 
     </div>
 </body>
