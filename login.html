@@ -6,10 +6,17 @@
         <meta charset="UTF-8">
         <title>Feedback Collection Login</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="">    
+        <link rel="stylesheet" href=""> 
+        <script type="text/javascript" src="scripts.js"></script>   
     </head>
 
 <style>
+
+
+label{
+    padding-top: 50mm;
+    margin-left: 40px;
+}
 
 body {  
     min-width: 400px;
@@ -18,21 +25,36 @@ body {
 }
 
 .login{
+    text-align: center;
+    width: 325px;
+    height: 172px;
+    padding: 15px;
+    background-color: bisque;  
+    margin-top: 2mm;
+    margin-left: 2mm;
+}
+
+.loginborder{
     margin: auto;
-    width: 350px;
-    height: 200px;
-    border: 2px solid black;
-    border-radius: 10%;
-    padding: 5px;
-    background-color: rgb(161, 161, 161);
+    width: 370px;
+    height: 220px;
+    border: 5px dotted #8E0C3A;
 }
 
-label{
-    padding-top: 50mm;
-    margin-left: 40px;
+button {
+    width:80%;
+}
+.login button{
+    transition-duration: 0.4s;
+    margin-left: 7mm;
+
 }
 
+.login button:hover{
+    background-color: #8E0C3A;
+    color: white;
 
+}
 </style>
 
 <script src=""></script>
@@ -41,10 +63,22 @@ label{
 
 
 
-<div class="login">
-    <label for="referral">Referral Code:</label>
-    <input type="text" id="referral" name="referral">
-</div>
+    <div class="loginborder">
+        <div class="login">
+            <h3>Actionable Feedback Collector</h3>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <br><br>
+                <label for="password">Password:</label>
+                <input style="margin-left: 4px;" type="text" id="password" name="password">
+                <br><br>
+                <button type="button" onclick="loadLandingPage()">Login</button>
+    
+            </form>
+    
+        </div>
+    </div>
 
 </body>
 </html>

@@ -64,7 +64,7 @@ select {
 }
 
 #logout {
-    transform: translate(270%);
+    transform: translate(350%);
     margin-bottom: 1mm;
 }
 
@@ -77,6 +77,20 @@ select {
 #issue {
     width: 89mm;
     margin: 4px;
+}
+
+#userlogo {
+margin-left: 42%;
+margin-top: 8px;;
+}
+
+.sectionHeader{
+    font-size: large;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.anonymousstatement {
+    margin-right: 15px;
 }
 
 .userpost {
