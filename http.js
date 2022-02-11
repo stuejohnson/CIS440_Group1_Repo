@@ -1,4 +1,5 @@
 let baseURL = 'http://localhost:8080'
+//Go here to see swagger UI when running API: http://localhost:8080/swagger-ui/index.html
 
 const HttpClient = function () {
     this.get = function (aUrl, aCallback) {
