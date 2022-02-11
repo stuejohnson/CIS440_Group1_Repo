@@ -10,9 +10,15 @@ function logOut(){
 
 function login(){
     sendHttpRequest('POST', '/api/login', {username: 'test', password: 'test12'}, function (status, response) {
-        console.log(status);
-        console.log(response);
-        console.log("User's Name is: " + response.name);
+        if(status === 200){
+            console.log(status);
+            console.log(response);
+            console.log("User's Name is: " + response.name);
+            sessionStorage.setItem('loggedInUser', JSON.stringify(response));
+            window.location.href = "index.html";
+        }else{
+            console.log('invalid login');
+        }
     })
 }
 
