@@ -8,6 +8,14 @@ function logOut(){
     //TODO
 }
 
+function login(){
+    sendHttpRequest('POST', '/api/login', {username: 'test', password: 'test12'}, function (status, response) {
+        console.log(status);
+        console.log(response);
+        console.log("User's Name is: " + response.name);
+    })
+}
+
 function createPostPage(){
     console.log("loading create Post Page");
     window.location.href = "createPost.html";
@@ -36,8 +44,9 @@ function downvote() {
 
 function deletepost() {
     var postfeed = document.getElementsByClassName("postfeed");
-    for (var i=0; i <postfeed.length; i++) {
-        postfeed[i].addEventListener('click', function() {
+    for (var i = 0; i < postfeed.length; i++) {
+        postfeed[i].addEventListener('click', function () {
             this.parentNode.remove();
         });
     }
+}

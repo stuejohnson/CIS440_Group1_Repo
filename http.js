@@ -1,3 +1,5 @@
+let baseURL = 'http://localhost:8080'
+
 const HttpClient = function () {
     this.get = function (aUrl, aCallback) {
         const xhr = new XMLHttpRequest();
@@ -15,13 +17,13 @@ const HttpClient = function () {
         const xhr = new XMLHttpRequest();
         xhr.onload = function () {
             // do something to response
-            console.log(xhr.responseText);
+            //console.log(xhr.responseText);
             if(aCallback != null)
-                aCallback(xhr.status, xhr.response)
+                aCallback(xhr.status, JSON.parse(xhr.response))
         };
 
         xhr.open("POST", aUrl, true);
-        xhr.setRequestHeader('content-type', 'application/json; charset=utf-8');
+        xhr.setRequestHeader('content-type', 'application/json');
         xhr.send(json);
     }
     this.put = function (aUrl, object, aCallback) {
@@ -31,7 +33,7 @@ const HttpClient = function () {
             // do something to response
             console.log(xhr.responseText);
             if(aCallback != null)
-                aCallback(xhr.status, xhr.response)
+                aCallback(xhr.status, JSON.parse(xhr.response))
         };
 
         xhr.open("PUT", aUrl, true);
@@ -44,7 +46,7 @@ const HttpClient = function () {
             // do something to response
             console.log(xhr.responseText);
             if(aCallback != null)
-                aCallback(xhr.status, xhr.response)
+                aCallback(xhr.status, JSON.parse(xhr.response))
         };
 
         xhr.open("DELETE", aUrl, true);
