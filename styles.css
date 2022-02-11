@@ -33,9 +33,9 @@ body {
     overflow: auto;
 }
 
-#userimg {
+#userlogo {
     margin-top: 5mm;
-    margin-left: 143px;
+    
 }
 
 h4 {
@@ -80,7 +80,7 @@ select {
 }
 
 #userlogo {
-margin-left: 42%;
+margin-left: 47%;
 margin-top: 8px;;
 }
 
@@ -93,6 +93,12 @@ margin-top: 8px;;
     margin-right: 15px;
 }
 
+#homeLink {
+
+    float: left;
+    height: 60px;
+    width: 60px;
+}
 .userpost {
     margin: 2mm;
     border: 2px dashed #8E0C3A;

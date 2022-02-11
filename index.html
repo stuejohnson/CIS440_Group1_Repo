@@ -20,10 +20,14 @@
     <!-- Banner Begins here -->
 <body>
     <div id="homeRibbon" class="container sticky-top">
+        <div>
+            
+        </div>
+
         <div class="row">
             <div  class="col-2 offset-md-9">
-                
-                <button id="userAccount" class="ribbonButtons btn-link" type="button" onClick="loadAccountPage()">Account</button>
+                <button id="home" class="ribbonButtons btn-link" type="button" onClick="loadLandingPage()">Home</button>
+                <!-- <button id="userAccount" class="ribbonButtons btn-link" type="button" onClick="loadAccountPage()">Account</button> -->
                 <button id="logout" class="ribbonButtons btn-link" type="button" onClick="logOut()">Log Out</button>
             </div>        
         </div>  
@@ -40,7 +44,7 @@
             
                 <div class="col-md-11 offset-md-1">
                     <img id="userlogo" src="UserIcon.png" id="userimg" width= "80" height= "80" alt="user icon"/>
-                    <h3 style="text-align: center">Logged in as, {firstName, lastName}</h3>
+                    <h3 style="text-align: center">Logged in as, {<i>username</i>}</h3>
 
                     <p class="anonymousstatement">We want to assure you that your responses are <b><i>completely anonymous</i></b>. Responses on this anonymous forum cannot be traced back to the respondent.</p> 
                     <p class="anonymousstatement">No personally identifiable information is captured unless you voluntarily offer personal or contact information in any of the comment fields.</p>
@@ -63,24 +67,55 @@
         <div id="feed" class="row">
             <div class="post col-md-12">
                 <div id="votingContainer" class="voteClass col-md-1 float-start"> 
-                    <span id="upVote">UpVote</span><br>
-                    <span id="voteCount">123456</span><br>
-                    <span id="downVote">DownVote</span><br>
+                    <span id="upVote" onclick="upvote()">&#128077;</span><br>
+                    <span id="voteCount">57</span><br>
+                    <span id="downVote" onclick="downvote()">&#128078;</span><br><br>
+                    <button type="text" onclick="deletePost"> Delete</button>
+                    
                 </div>
                 <div class="col-md-11 offset-md-1">
                     <span id="postTitle" class="col-md-1 ">Post title</span>
-                    <span id="postDate" class="col-md-1 float-end">01/01/2022</span><br>
+                    <span id="postDate" class="col-md-1 float-end">01/01/2022</span>
+                    <span id="date" class="col-md-1 float-end">Dept: HR</span><br>
                 </div>
                 <div class="col-md-11 offset-md-1">
                     <span id="postInfo" class="col-md-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante tincidunt, dictum ante vitae, luctus dolor. Sed metus tellus, consequat tempus molestie a, iaculis sit amet sem. Vestibulum sed fringilla justo. Vivamus dapibus lacinia diam quis mollis. Sed est justo, sollicitudin nec convallis eu, tincidunt sit amet mi. Nullam sit amet neque pharetra, tincidunt nisi et, maximus magna. Pellentesque in luctus lorem, quis pulvinar felis. Aliquam maximus nulla ac ornare viverra. Nunc augue lorem, interdum eget dolor eu, lacinia eleifend tortor. Aenean ut purus vel orci sagittis suscipit. Nullam elementum fermentum vehicula. Etiam mauris metus, condimentum ut risus at, placerat dignissim felis. Sed gravida, eros non aliquet tristique, nunc mauris euismod magna, a dictum dolor nunc eu ante. Pellentesque eros mauris, suscipit sed libero sit amet, venenatis lobortis libero. Donec sed diam commodo, congue nulla eu, ultricies sem. Proin sagittis lorem purus, at varius ante egestas a.
 
                         Ut sed eros accumsan, consequat leo at, viverra tellus. In fringilla neque at dolor cursus, sit amet laoreet libero porttitor. Sed sollicitudin ligula non bibendum mollis. Pellentesque consequat mollis molestie. Vestibulum facilisis sodales nisl, vel cursus massa. Nullam tristique molestie varius. Praesent viverra, sapien vel volutpat iaculis, enim ipsum vulputate ex, sagittis porta nibh orci ut elit. Nulla a fringilla lacus, non euismod urna. Phasellus vulputate ut turpis in gravida. Etiam sed ligula a libero ornare imperdiet ac in enim. Donec mollis maximus magna vel molestie. Etiam laoreet erat quis felis scelerisque, hendrerit sodales nibh iaculis. In sapien ante, mattis cursus ullamcorper in, elementum et odio.
                         
-                        Proin vel aliquam nunc, at condimentum massa. Quisque at velit in erat tempus mattis. In hac habitasse platea dictumst. Fusce aliquam nulla quis purus ullamcorper, at venenatis elit ullamcorper. Etiam mollis, leo et tristique fermentum, tellus turpis sollicitudin augue, nec fringilla augue mi interdum felis. Praesent molestie, lectus sit amet posuere vestibulum, quam justo porttitor risus, vitae pulvinar tellus nulla vitae erat. Proin tempor, dolor sit amet rhoncus auctor, eros erat porta orci, gravida hendrerit velit elit malesuada quam.
+                        Proin vel aliquam nunc, at condimentum massa. Quisque at velit in erat tempus mattis.</span>
+                </div>
+                
+            </div>
+        
+        </div> 
+    </div> 
+
+    <div class="container">
+        <div id="feed" class="row">
+            <div class="post col-md-12">
+                <div id="votingContainer" class="voteClass col-md-1 float-start"> 
+                    <span id="upVote">&#128077;</span><br>
+                    <span id="voteCount">23</span><br>
+                    <span id="downVote">&#128078;</span><br><br>
+                    <button type="text" onclick="deletePost"> Delete</button>
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postTitle" class="col-md-1 ">Post title</span>
+                    <span id="postDate" class="col-md-1 float-end">01/01/2022</span>
+                    <span id="date" class="col-md-1 float-end">Dept: HR</span><br>
+                    
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postInfo" class="col-md-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante tincidunt, dictum ante vitae, luctus dolor. Sed metus tellus, consequat tempus molestie a, iaculis sit amet sem. Vestibulum sed fringilla justo. Vivamus dapibus lacinia diam quis mollis. Sed est justo, sollicitudin nec convallis eu, tincidunt sit amet mi. Nullam sit amet neque pharetra, tincidunt nisi et, maximus magna. Pellentesque in luctus lorem, quis pulvinar felis. Aliquam maximus nulla ac ornare viverra. Nunc augue lorem, interdum eget dolor eu, lacinia eleifend tortor. Aenean ut purus vel orci sagittis suscipit. Nullam elementum fermentum vehicula. Etiam mauris metus, condimentum ut risus at, placerat dignissim felis. Sed gravida, eros non aliquet tristique, nunc mauris euismod magna, a dictum dolor nunc eu ante. Pellentesque eros mauris, suscipit sed libero sit amet, venenatis lobortis libero. Donec sed diam commodo, congue nulla eu, ultricies sem. Proin sagittis lorem purus, at varius ante egestas a.
+
+                        Ut sed eros accumsan, consequat leo at, viverra tellus. In fringilla neque at dolor cursus, sit amet laoreet libero porttitor. Sed sollicitudin ligula non bibendum mollis. Pellentesque consequat mollis molestie. Vestibulum facilisis sodales nisl, vel cursus massa. Nullam tristique molestie varius. Praesent viverra, sapien vel volutpat iaculis, enim ipsum vulputate ex, sagittis porta nibh orci ut elit. Nulla a fringilla lacus, non euismod urna. Phasellus vulputate ut turpis in gravida. Etiam sed ligula a libero ornare imperdiet ac in enim. Donec mollis maximus magna vel molestie. Etiam laoreet erat quis felis scelerisque, hendrerit sodales nibh iaculis. In sapien ante, mattis cursus ullamcorper in, elementum et odio.
                         
-                        Nulla semper metus quis eros tempor tempus. Ut ac lacus molestie, sagittis massa mollis, dapibus lectus. Vivamus vel ullamcorper justo. Integer nec faucibus magna, vel imperdiet mi. Vestibulum nec tincidunt mauris. Nam feugiat rhoncus tortor, id pulvinar magna pretium id. Curabitur gravida mi id sem convallis, vel venenatis tellus rutrum. Integer libero dui, fringilla id mi sed, consectetur gravida ante. Donec eget velit aliquet, laoreet mauris porta, feugiat odio. Cras vel porttitor odio. Curabitur laoreet ipsum augue, in lacinia libero volutpat et.
-                        
-                        Aenean et dolor a nunc imperdiet mollis sed a ex. Vestibulum vitae luctus ipsum. Sed vel rhoncus elit. Nullam ex lacus, scelerisque quis nisi eget, elementum eleifend purus. Suspendisse mi purus, elementum ac pulvinar sed, gravida sit amet est. Maecenas vel mi ac mauris sodales tempor. Cras in rutrum mi, vitae malesuada tortor. Donec eget orci nec dui convallis dapibus sed ut felis. Proin tincidunt sodales metus eget volutpat. Mauris sollicitudin pulvinar sapien, quis hendrerit sapien convallis sit amet. Proin vitae sapien nisl.</span>
+                        Proin vel aliquam nunc, at condimentum massa. Quisque at velit in erat tempus mattis.</span><br><br>
+
+                    
+
+
                 </div>
                 
             </div>
