@@ -10,7 +10,6 @@
   float: left;
   width: 8.3333%;
   border: 2px dotted #FFC627;
-  margin: 5px;
   background-color: bisque;
 }
 
@@ -22,15 +21,18 @@
 }
 
 html {
-    height: 100%
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {  
     min-width: 600px;
     background-image: url("asu-gradient-background.png");
-    margin: 5mm;
     height: 100%;
     overflow: auto;
+    width: 100%;
+    max-width: 100%;
 }
 
 #userlogo {
@@ -40,7 +42,6 @@ body {
 
 h4 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
     margin-top: 5mm;
     margin-bottom: 2mm;
     margin-left: 4mm;
@@ -135,6 +136,7 @@ margin-top: 8px;;
 }
 
 #homeRibbon {
+    width: 100%;
     background-color: lightgreen;
     padding:5px;
 }

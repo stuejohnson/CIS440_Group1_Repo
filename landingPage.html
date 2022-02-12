@@ -10,32 +10,50 @@
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 
-<!-- TODO: dropdown for filter by date or vote count -->
+
 <body>
-    <div id="homeRibbon" class="container sticky-top">
+    
+    <div id="homeRibbon" class="container-fluid sticky-top">
         <div class="row">
-            <div  class="col-2 offset-md-9">
+            <div class="col-1 float-start">
+                <button id="home" class="ribbonButtons btn-link" type="button" onClick="loadLandingPage()">Home</button>
+            </div>
+            <div  class="col-2 offset-md-8">
                 <button id="userAccount" class="ribbonButtons btn-link" type="button" onClick="loadAccountPage()">Account</button>
                 <button id="logout" class="ribbonButtons btn-link" type="button" onClick="logOut()">Log Out</button>
-            </div>        
+            </div>       
         </div>  
         <div class="row">
-            <div class="col-1 offset-md-11">
+            <select class="col-1 offset-md-4" name="dept" id="dept">
+                <option style="display:none;">Select a Deptartment</option>
+                <option value="finance">Finance</option>
+                <option value="humanresources">Human Resources</option>
+                <option value="informationtechnology">Information Technology</option>
+                <option value="marketing">Marketing</option>
+                <option value="operations">Operations</option>
+            </select>
+            <select class="col-1" name="filter" id="filter">
+                <option value="none">None</option>
+                <option value="Date">By Date</option>
+                <option value="Vote">By Vote</option>
+            </select>
+            <div class="col-1">
                 <button  id="ribbonButtons submission" type="button" onClick="createPostPage()" style="font-size: 12px;">Create Post</button>
             </div>
         </div>   
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div id="feed" class="row">
             <div class="post col-md-12">
                 <div id="votingContainer" class="voteClass col-md-1 float-start"> 
-                    <span id="upVote">UpVote</span><br>
-                    <span id="voteCount">123456</span><br>
-                    <span id="downVote">DownVote</span><br>
+                    <span id="upVote" onclick="upvote()">&#128077;</span><br>
+                    <span id="voteCount">57</span><br>
+                    <span id="downVote" onclick="downvote()">&#128078;</span><br><br>
                 </div>
                 <div class="col-md-11 offset-md-1">
                     <span id="postTitle" class="col-md-1 ">Post title</span>
+                    <span id="date" class="col-md-1 offset-md-9">Dept: HR</span>
                     <span id="postDate" class="col-md-1 float-end">01/01/2022</span><br>
                 </div>
                 <div class="col-md-11 offset-md-1">
