@@ -1,60 +1,61 @@
 /* CSS for project one- group one */
 
 .row {
-    width: 800px;
+    width: 100%;
     margin: auto;
-    border: 5px dotted #8E0C3A;
-    padding: 8px;
+    border: none;
 }
 
-.leftcolumn {
-    float: left;
-    width: 389px;
-    border: 2px dotted #FFC627;
-    margin-top: 5px;
-    margin-right: 5px;
-    background-color: bisque;
-    height: 120mm;
-}
-
-.rightcolumn {
-    float: left;
-    width: 387px;
-    border: 2px dotted #FFC627;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
-    background-color: bisque;
+.column {
+  float: left;
+  width: 8.3333%;
+  border: 2px dotted #FFC627;
+  background-color: bisque;
 }
 
 /* Clear floats after the columns */
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
-#userinfo {
-    margin-top: 5mm;
+html {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {  
     min-width: 600px;
     background-image: url("asu-gradient-background.png");
-    margin-top: 5mm;
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+    max-width: 100%;
 }
 
-#userimg {
-    margin-top: 5mm;
-    margin-left: 143px;
+.votingButtons {
+    margin-left: 20px;
 }
 
-h5 {
-    padding-top: 1mm;;
+#votingContainer{
+    padding-top: 20px;
+    
+    padding-right: 20px;
+}
+
+#deleteButton {
+    margin: auto;
+}
+
+#userlogo {
+    margin-top: 5mm;
+    
 }
 
 h4 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 5mm;
     margin-bottom: 2mm;
     margin-left: 4mm;
@@ -77,77 +78,15 @@ select {
     margin: 4px;
 }
 
-.anonymousstatement {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: medium;
-    margin-top: 3;
-    margin-right: 8mm;
-    margin-left: 8mm;
-    text-align: justify;
-    text-justify: inter-word;
-}
-
-#resetPassword {
-    transform: translate(120%);
-    margin-bottom: 1mm;
-    margin-top: 2mm;
-}
-
 #logout {
-    transform: translate(160%);
+    transform: translate(350%);
     margin-bottom: 1mm;
-    margin-top: 2mm;
-}
-
-#homeimage{
-    float: left;
-    
-}
-
-#userlogo{
-    padding-top: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.departmentselect {
-    border: 2px dotted #FFC627;
-    width: 717px;
-    height: 47px;
-    
-    float: right;
-    background-color: bisque;
-    padding: 1mm;
-}
-
-#userinfo button{
-    transition-duration: 0.4s;
-    
-}
-#userinfo button:hover{
-    background-color: #8E0C3A; /* Green */
-    color: white;
-}
-
-.departmentselect button{
-    transition-duration: 0.4s;
-    margin-top: 4mm;
-    margin-left: 3mm;
-    margin-right: 3mm;
-    
-
-}
-
-.departmentselect button:hover{
-    background-color: #8E0C3A; /* Green */
-    color: white;
 }
 
 .postfeed {
     margin: 2mm;
     border: 2px dashed #8E0C3A;
-    padding-left: 3mm;
+    padding: 2mm;
 }
 
 #issue {
@@ -155,45 +94,31 @@ select {
     margin: 4px;
 }
 
+#userlogo {
+margin-left: 46%;
+margin-top: 8px;;
+}
+
+.sectionHeader{
+    font-size: large;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.anonymousstatement {
+    
+    text-align: center;
+}
+
+#homeLink {
+
+    float: left;
+    height: 60px;
+    width: 60px;
+}
 .userpost {
     margin: 2mm;
     border: 2px dashed #8E0C3A;
     padding: 2mm;
-}
-
-.complaint {
-    font-weight: bold;
-}
-
-.actionablefeedback {
-    text-indent: 20px;
-    margin-right: 15px;
-    margin-left: 5px;
-}
-
-.thumbsup{
-    display: inline;
-    margin-left: 10px;
-    background-color: transparent;
-    border-color: transparent;
-}
-
-.thumbsdown{
-    display: inline;
-    background-color: transparent;
-    border-color: transparent;
-}
-
-.deletepost {
-    display: inline;
-    margin-bottom: 10px;
-    margin-left: 150px;
-}
-
-.numberofvotes {
-    display: inline;
-    margin-left: 10px;
-    color: blue;
 }
 
 #feedback {
@@ -225,16 +150,54 @@ select {
     width: 92mm;
 }
 
+#homeRibbon {
+    width: 100%;
+    background-color: lightgreen;
+    padding:5px;
+}
+
 .ribbonButtons:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.ribbonButtons {
+    background-color: transparent;
     float: right;
     border: none;
-    background-color: inherit;
     margin: 0;
     padding: 0;
     cursor: pointer;
 }
 
-.homeRibbon {
-    background-color: green;
+#feed{
+    background-color: tan;
+    padding: 3px;
+    height: 90%;
+}
+
+.spacer {
+    background-color: inherit;
+    float: left;
+}
+
+.postFeed {
+    background-color: blue;
+    margin: 2px;
+    float:left;
+}
+
+.post {
+    background-color: red;
+    float: left;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+#postTitle {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+#postInfo {
+    font-size: 12pt;
 }

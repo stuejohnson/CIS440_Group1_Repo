@@ -5,62 +5,128 @@
 <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <title>Feedback Collector</title>
+    <title>Account Page</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" type="text/css">
     <script type="text/javascript" src="scripts.js"></script>
+        <script>
+            let i = sessionStorage.getItem('loggedInUser');
+            console.log(JSON.parse(i));
+        </script>
     </head>
 
 
-
+    <!-- Banner Begins here -->
 <body>
+    <div id="homeRibbon" class="container-fluid sticky-top">
+        
 
-
-
-
-
-<div class="row">
-    <button onclick="loadLandingPage()"><img src="homeicon.png" id="homeimg" width="50" height="50" alt="To Home" ></button>
-
-
-    <div class="departmentselect">
-        <button >ALL</button>
-        <button>Finance</button>
-        <button>Human Resources</button>
-        <button>Information Technology</button>
-        <button>Marketing</button>
-        <button>Operations</button>
+        <div class="row">
+            <div  class="col-2 offset-md-8">
+                <button id="home" class="ribbonButtons btn-link" type="button" onClick="loadLandingPage()">Home</button>
+                <!-- <button id="userAccount" class="ribbonButtons btn-link" type="button" onClick="loadAccountPage()">Account</button> -->
+                <button id="logout" class="ribbonButtons btn-link" type="button" onClick="logOut()">Log Out</button>
+            </div>        
+        </div>  
+        <!-- <div class="row">
+            <div class="col-1 offset-md-11">
+                <button  id="ribbonButtons submission" type="button" onClick="createPostPage()" style="font-size: 12px;">Create Post</button>
+            </div>
+        </div>    -->
     </div>
 
-
-
-    <div class="leftcolumn">
-        <div id="userinfo">
-
-            <img id="userlogo" src="UserIcon.png" id="userimg" width= "80" height= "80" alt="user icon"/>
-            <h3 style="text-align: center">Logged in as, {firstName, lastName}</h3>
-
-            <button id="logout" type="button" onclick="loadLoginPage()">Logout</button>
-            <button id="resetPassword" type="button">Reset Password</button>
+    <div id="accountRibbon" class="container-fluid">
+        <div id="feed" class="row">
+            <div class="post col-md-12">
             
-            <p class="anonymousstatement">We want to assure you that your responses are <b><i>completely anonymous</i></b>. Responses on this anonymous forum cannot be traced back to the respondent.</p> 
-            <p class="anonymousstatement">No personally identifiable information is captured unless you voluntarily offer personal or contact information in any of the comment fields.</p>
+                <div class="col-md-11 offset-md-1">
+                    <img id="userlogo" src="UserIcon.png" id="userimg" width= "80" height= "80" alt="user icon"/>
+                    <h3 style="text-align: center">Logged in as, {<i>username</i>}</h3>
+
+                    <p class="anonymousstatement">We want to assure you that your responses are <b><i>completely anonymous</i></b>. Responses on this anonymous forum cannot be traced back to the respondent.</p> 
+                    <p class="anonymousstatement">No personally identifiable information is captured unless you voluntarily offer personal or contact information in any of the comment fields.</p>
+                </div>
+
+                
+                
+            </div>
+                <div class="col-md-11 offset-md-1">
+                    <p class="sectionHeader">My Posts:</p>
+                </div>
+        </div> 
+    </div>
+
+    
+
+
+    <!-- Feed Begins here -->
+    <div class="container-fluid" class="userPost">
+        <div id="feed" class="row">
+            <div class="post col-md-12">
+                <div id="votingContainer" class="voteClass col-md-1 float-start"><br> 
+                    <div class="votingButtons"> 
+                        <span id="upVote" onclick="upvote()">&#128077;</span><br>
+                        <span id="voteCount">57</span><br>
+                        <span id="downVote" onclick="downvote()">&#128078;</span><br><br><br>
+                    </div>
+                    <button id="deleteButton" type="text" onclick="deletePost()"> Delete</button>
+                    
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postTitle" class="col-md-1 ">Post title</span>
+                    <span id="postDate" class="col-md-1 float-end">01/01/2022</span>
+                    <span id="date" class="col-md-1 float-end">Dept: HR</span><br>
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postInfo" class="col-md-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante tincidunt, dictum ante vitae, luctus dolor. Sed metus tellus, consequat tempus molestie a, iaculis sit amet sem. Vestibulum sed fringilla justo. Vivamus dapibus lacinia diam quis mollis. Sed est justo, sollicitudin nec convallis eu, tincidunt sit amet mi. Nullam sit amet neque pharetra, tincidunt nisi et, maximus magna. Pellentesque in luctus lorem, quis pulvinar felis. Aliquam maximus nulla ac ornare viverra. Nunc augue lorem, interdum eget dolor eu, lacinia eleifend tortor. Aenean ut purus vel orci sagittis suscipit. Nullam elementum fermentum vehicula. Etiam mauris metus, condimentum ut risus at, placerat dignissim felis. Sed gravida, eros non aliquet tristique, nunc mauris euismod magna, a dictum dolor nunc eu ante. Pellentesque eros mauris, suscipit sed libero sit amet, venenatis lobortis libero. Donec sed diam commodo, congue nulla eu, ultricies sem. Proin sagittis lorem purus, at varius ante egestas a.
+
+                        Ut sed eros accumsan, consequat leo at, viverra tellus. In fringilla neque at dolor cursus, sit amet laoreet libero porttitor. Sed sollicitudin ligula non bibendum mollis. Pellentesque consequat mollis molestie. Vestibulum facilisis sodales nisl, vel cursus massa. Nullam tristique molestie varius. Praesent viverra, sapien vel volutpat iaculis, enim ipsum vulputate ex, sagittis porta nibh orci ut elit. Nulla a fringilla lacus, non euismod urna. Phasellus vulputate ut turpis in gravida. Etiam sed ligula a libero ornare imperdiet ac in enim. Donec mollis maximus magna vel molestie. Etiam laoreet erat quis felis scelerisque, hendrerit sodales nibh iaculis. In sapien ante, mattis cursus ullamcorper in, elementum et odio.
+                        
+                        Proin vel aliquam nunc, at condimentum massa. Quisque at velit in erat tempus mattis.</span>
+                </div>
+                
+            </div>
+        
+        </div> 
+    </div> 
+
+     
+
+
+<!-- Useless code for referencing -->
+
+<!-- <div class="row">
+    <div class="column">
+        <div id="userwelcome">
+
+            <img src="UserIcon.png" id="userimg" width= "80" height= "80" alt="user icon"/>
+            <h3 style="text-align: center">Logged in as, {Referral code}</h3>
+
+            <button id="logout" type="button">Logout</button>
+
+            <h4 style="text-align: left">My Posts:</h4>
             
-            <!-- Post submission Div, Saving for pop out window.  -->
-            <!--
+            <div class="userpost">
+                <p>Placeholder for current Users posts</p>
+            </div>
+            <div class="userpost">
+                <p>Placeholder for current Users posts</p>
+            </div>
+
             <h4 style="text-align: left"> Create a Post:</h4>
 
-                <div id="postsubmission">
+            <div id="postsubmission">
 
                 <label  for="dept">Which department are you apart of?</label>
 
                 <select name="dept" id="dept">
-                <option style="display:none;">Select a Deptartment</option>
-                <option value="finance">Finance</option>
-                <option value="humanresources">Human Resources</option>
-                <option value="informationtechnology">Information Technology</option>
-                <option value="marketing">Marketing</option>
-                <option value="operations">Operations</option>
+                    <option style="display:none;">Select a Deptartment</option>
+                    <option value="finance">Finance</option>
+                    <option value="humanresources">Human Resources</option>
+                    <option value="informationtechnology">Information Technology</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="operations">Operations</option>
                 </select>
 
                 <label for="issue">What is the main issue at hand?</label>
@@ -71,7 +137,7 @@
 
                 <button id="submitpostbutton" onclick="post">Submit Post</button>
 
-            </div> -->
+            </div>
 
         </div>
 
@@ -79,10 +145,8 @@
     </div>
     
     
-    <div class="rightcolumn">
-
-
-        <!-- <div id="deptselect">
+    <div class="column">
+        <div id="deptselect">
             <input type="checkbox" id="finance" name="finance" value="Finance" checked>
             <label for="Finance"> Finance</label>
             <input type="checkbox" id="humanresources" name="humanresources" value="Human Resources" checked>
@@ -97,38 +161,21 @@
 
             <button id="sortbutton" onclick="short"> Sort</button>
 
-        </div> -->
+        </div>
 
         <div class="postfeed">
-            <p class="complaint">Placeholder for THIS users feedback subject.</p>
-            <P class="actionablefeedback">Actionable feedback left by user goes here.</p>
-            <button onclick="upvote()" class="thumbsup">&#128077;</button>
-            <button onclick="downvote()" class="thumbsdown">&#128078;</button>
-            <p class="numberofvotes">67</p>
-            <button onclick="deletepost()" class="deletepost">Delete Post</button>
+            <h2>Placeholder for All users feedback-feed.</h2>
         </div>
         <div class="postfeed">
-            <p class="complaint">Placeholder for THIS users feedback subject.</p>
-            <P class="actionablefeedback">Actionable feedback left by user goes here. They could type more words
-                and the text would look a little like this.
-            </p>
-            <button onclick="upvote()" class="thumbsup">&#128077;</button>
-            <button onclick="downvote()" class="thumbsdown">&#128078;</button>
-            <p class="numberofvotes">35</p>
-            <button onclick="deletepost()" class="deletepost">Delete Post</button>
+            <h2>Placeholder for All users feedback-feed.</h2>
         </div>
         <div class="postfeed">
-            <p class="complaint">Placeholder for THIS users feedback subject.</p>
-            <P class="actionablefeedback">Actionable feedback left by user goes here.</p>
-            <button onclick="upvote()" class="thumbsup">&#128077;</button>
-            <button onclick="downvote()" class="thumbsdown">&#128078;</button>
-            <p class="numberofvotes">14</p>
-            <button onclick="deletepost()" class="deletepost">Delete Post</button>
+            <h2>Placeholder for All users feedback-feed.</h2>
         </div>
     </div>
 
  
-</div>
+</div> -->
 
 </body>
 

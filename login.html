@@ -4,15 +4,21 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Feedback Collection Login</title>
+        <title>Login</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="">
-        <script type="text/javascript" src="scripts.js"></script>    
+        <script type="text/javascript" src="http.js"></script>
+        <script type="text/javascript" src="scripts.js"></script>
+        <script>login();</script>
     </head>
 
 <style>
 
 
+label{
+    padding-top: 50mm;
+    
+}
 
 body {  
     min-width: 400px;
@@ -23,7 +29,7 @@ body {
 .login{
     text-align: center;
     width: 325px;
-    height: 172px;
+    height: 205px;
     padding: 15px;
     background-color: bisque;  
     margin-top: 2mm;
@@ -33,13 +39,17 @@ body {
 .loginborder{
     margin: auto;
     width: 370px;
-    height: 220px;
+    height: 250px;
     border: 5px dotted #8E0C3A;
+}
+
+button {
+    width:80%;
 }
 
 .login button{
     transition-duration: 0.4s;
-    margin-left: 7mm;
+    
 
 }
 
@@ -48,96 +58,32 @@ body {
     color: white;
 
 }
-
-.createaccount{
-    text-align: center;
-    width: 425px;
-    height: 272px;
-    padding: 15px;
-    background-color: bisque;  
-    margin-top: 2mm;
-    margin-left: 2mm;
-    
-}
-
-#createaccountborder{
-    margin: auto;
-    width: 472px;
-    height: 320px;
-    border: 5px dotted #8E0C3A;
-    margin-top: 8mm;
-    visibility: hidden;
-    position: relative;
-    top: -322px;
-    /* left: -30px; */
-    
-}
-
-.createaccount button{
-    transition-duration: 0.4s;
-    margin-left: 3mm;
-    
-}
-
-.createaccount button:hover{
-    background-color: #8E0C3A; 
-    color: white;
-    
-}
-
-
 </style>
 
-
+<script src=""></script>
 
 <body>
 
-
-
-<div class="loginborder">
-    <div class="login">
-        <h3>Actionable Feedback Collector</h3>
-        <form>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-            <br><br>
-            <label for="password">Password:</label>
-            <input style="margin-left: 4px;" type="text" id="password" name="password">
-            <br><br>
-            <button type="button" onclick="loadLandingPage()">Login</button>
-
-            <button type="button" onclick="openCreateAccount()">Create an Account</button>
-        </form>
-
+    <div class="loginborder">
+        <div class="login">
+            <h3>Welcome!</h3>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="usernameBox" name="username">
+                <br><br>
+                <label for="password">Password:</label>
+                <input style="margin-left: 4px;" type="text" id="password" name="password">
+                <br><br>
+                <div id="loginStatus">
+                    <span>Enter your credentials above.</span>
+                </div>
+                <br>
+                <button type="button" onclick="login()">Login</button>
+    
+            </form>
+    
+        </div>
     </div>
-</div>
-
-<div id="createaccountborder">
-    <div class="createaccount">
-        <button onclick="closeCreateAccount()" style="float: right;">X</button>
-        <h3>Create an Account to Leave Feedback</h3>
-        <form>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-            <br><br>
-            <label for="password">Password:</label>
-            <input style="margin-left: 4px;" type="text" id="password" name="password">
-
-            <br><br>
-
-            <label for="firstname">First name:</label>
-            <input type="text" id="firstname" name="firstname">
-            <br><br>
-            <label for="lastname">Last name:</label>
-            <input type="text" id="lastname" name="lastname">
-            <br><br><br>
-        
-
-            <button type="button" onclick="createAccount()">Create an Account</button>
-        </form>
-
-    </div>
-</div>
 
 </body>
 </html>
