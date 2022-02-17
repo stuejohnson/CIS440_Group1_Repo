@@ -4,12 +4,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Feedback Collection Login</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="">
         <script type="text/javascript" src="http.js"></script>
         <script type="text/javascript" src="scripts.js"></script>
-        <script>login();</script>
+        <!-- <script>login();</script> -->
     </head>
 
 <style>
@@ -29,7 +29,7 @@ body {
 .login{
     text-align: center;
     width: 325px;
-    height: 205px;
+    height: 172px;
     padding: 15px;
     background-color: bisque;  
     margin-top: 2mm;
@@ -39,7 +39,7 @@ body {
 .loginborder{
     margin: auto;
     width: 370px;
-    height: 250px;
+    height: 220px;
     border: 5px dotted #8E0C3A;
 }
 
@@ -64,20 +64,18 @@ button {
 
 <body>
 
+
+
     <div class="loginborder">
         <div class="login">
-            <h3>Welcome!</h3>
+            <h3>Actionable Feedback Collector</h3>
             <form>
                 <label for="username">Username:</label>
-                <input type="text" id="usernameBox" name="username">
+                <input type="text" id="username" name="username">
                 <br><br>
                 <label for="password">Password:</label>
                 <input style="margin-left: 4px;" type="text" id="password" name="password">
                 <br><br>
-                <div id="loginStatus">
-                    <span>Enter your credentials above.</span>
-                </div>
-                <br>
                 <button type="button" onclick="login()">Login</button>
     
             </form>
