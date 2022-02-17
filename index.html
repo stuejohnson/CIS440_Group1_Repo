@@ -13,44 +13,13 @@
         <script>
             let i = sessionStorage.getItem('loggedInUser');
             console.log(JSON.parse(i));
-
-            window.onload = printPost;
         </script>
-
-        <style>
-            .usersposts{
-                margin: auto;
-                width: 70%
-            }
-
-            .usersposts *{
-                text-align: center;
-                margin: 0 auto;
-            }
-
-            h3 {
-                text-align: left;
-            }
-            .usersposts {
-                border: 2px dotted red;
-                padding: 10px;
-                background-color: #e6dddd; 
-                margin-bottom: 20px;
-            }
-
-            .likebutton {
-                background-color: transparent;
-                border: red dotted;
-            }
-
-        </style>
-
     </head>
 
 
     <!-- Banner Begins here -->
 <body>
-    <div id="homeRibbon" class="container-fluid sticky-top">
+    <div id="homeRibbon" class="container sticky-top">
         <div>
             
         </div>
@@ -89,6 +58,150 @@
                 </div>
         </div> 
     </div>
+
+    
+
+
+    <!-- Feed Begins here -->
+    <div class="container">
+        <div id="feed" class="row">
+            <div class="post col-md-12">
+                <div id="votingContainer" class="voteClass col-md-1 float-start"> 
+                    <span id="upVote" onclick="upvote()">&#128077;</span><br>
+                    <span id="voteCount">57</span><br>
+                    <span id="downVote" onclick="downvote()">&#128078;</span><br><br>
+                    <button type="text" onclick="deletePost"> Delete</button>
+                    
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postTitle" class="col-md-1 ">Post title</span>
+                    <span id="postDate" class="col-md-1 float-end">01/01/2022</span>
+                    <span id="date" class="col-md-1 float-end">Dept: HR</span><br>
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postInfo" class="col-md-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante tincidunt, dictum ante vitae, luctus dolor. Sed metus tellus, consequat tempus molestie a, iaculis sit amet sem. Vestibulum sed fringilla justo. Vivamus dapibus lacinia diam quis mollis. Sed est justo, sollicitudin nec convallis eu, tincidunt sit amet mi. Nullam sit amet neque pharetra, tincidunt nisi et, maximus magna. Pellentesque in luctus lorem, quis pulvinar felis. Aliquam maximus nulla ac ornare viverra. Nunc augue lorem, interdum eget dolor eu, lacinia eleifend tortor. Aenean ut purus vel orci sagittis suscipit. Nullam elementum fermentum vehicula. Etiam mauris metus, condimentum ut risus at, placerat dignissim felis. Sed gravida, eros non aliquet tristique, nunc mauris euismod magna, a dictum dolor nunc eu ante. Pellentesque eros mauris, suscipit sed libero sit amet, venenatis lobortis libero. Donec sed diam commodo, congue nulla eu, ultricies sem. Proin sagittis lorem purus, at varius ante egestas a.
+
+                        Ut sed eros accumsan, consequat leo at, viverra tellus. In fringilla neque at dolor cursus, sit amet laoreet libero porttitor. Sed sollicitudin ligula non bibendum mollis. Pellentesque consequat mollis molestie. Vestibulum facilisis sodales nisl, vel cursus massa. Nullam tristique molestie varius. Praesent viverra, sapien vel volutpat iaculis, enim ipsum vulputate ex, sagittis porta nibh orci ut elit. Nulla a fringilla lacus, non euismod urna. Phasellus vulputate ut turpis in gravida. Etiam sed ligula a libero ornare imperdiet ac in enim. Donec mollis maximus magna vel molestie. Etiam laoreet erat quis felis scelerisque, hendrerit sodales nibh iaculis. In sapien ante, mattis cursus ullamcorper in, elementum et odio.
+                        
+                        Proin vel aliquam nunc, at condimentum massa. Quisque at velit in erat tempus mattis.</span>
+                </div>
+                
+            </div>
+        
+        </div> 
+    </div> 
+
+    <div class="container">
+        <div id="feed" class="row">
+            <div class="post col-md-12">
+                <div id="votingContainer" class="voteClass col-md-1 float-start"> 
+                    <span id="upVote">&#128077;</span><br>
+                    <span id="voteCount">23</span><br>
+                    <span id="downVote">&#128078;</span><br><br>
+                    <button type="text" onclick="deletePost"> Delete</button>
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postTitle" class="col-md-1 ">Post title</span>
+                    <span id="postDate" class="col-md-1 float-end">01/01/2022</span>
+                    <span id="date" class="col-md-1 float-end">Dept: HR</span><br>
+                    
+                </div>
+                <div class="col-md-11 offset-md-1">
+                    <span id="postInfo" class="col-md-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante tincidunt, dictum ante vitae, luctus dolor. Sed metus tellus, consequat tempus molestie a, iaculis sit amet sem. Vestibulum sed fringilla justo. Vivamus dapibus lacinia diam quis mollis. Sed est justo, sollicitudin nec convallis eu, tincidunt sit amet mi. Nullam sit amet neque pharetra, tincidunt nisi et, maximus magna. Pellentesque in luctus lorem, quis pulvinar felis. Aliquam maximus nulla ac ornare viverra. Nunc augue lorem, interdum eget dolor eu, lacinia eleifend tortor. Aenean ut purus vel orci sagittis suscipit. Nullam elementum fermentum vehicula. Etiam mauris metus, condimentum ut risus at, placerat dignissim felis. Sed gravida, eros non aliquet tristique, nunc mauris euismod magna, a dictum dolor nunc eu ante. Pellentesque eros mauris, suscipit sed libero sit amet, venenatis lobortis libero. Donec sed diam commodo, congue nulla eu, ultricies sem. Proin sagittis lorem purus, at varius ante egestas a.
+
+                        Ut sed eros accumsan, consequat leo at, viverra tellus. In fringilla neque at dolor cursus, sit amet laoreet libero porttitor. Sed sollicitudin ligula non bibendum mollis. Pellentesque consequat mollis molestie. Vestibulum facilisis sodales nisl, vel cursus massa. Nullam tristique molestie varius. Praesent viverra, sapien vel volutpat iaculis, enim ipsum vulputate ex, sagittis porta nibh orci ut elit. Nulla a fringilla lacus, non euismod urna. Phasellus vulputate ut turpis in gravida. Etiam sed ligula a libero ornare imperdiet ac in enim. Donec mollis maximus magna vel molestie. Etiam laoreet erat quis felis scelerisque, hendrerit sodales nibh iaculis. In sapien ante, mattis cursus ullamcorper in, elementum et odio.
+                        
+                        Proin vel aliquam nunc, at condimentum massa. Quisque at velit in erat tempus mattis.</span><br><br>
+                </div>
+                
+            </div>
+        
+        </div> 
+    </div> 
+
+
+<!-- Useless code for referencing -->
+
+<!-- <div class="row">
+    <div class="column">
+        <div id="userwelcome">
+
+            <img src="UserIcon.png" id="userimg" width= "80" height= "80" alt="user icon"/>
+            <h3 style="text-align: center">Logged in as, {Referral code}</h3>
+
+            <button id="logout" type="button">Logout</button>
+
+            <h4 style="text-align: left">My Posts:</h4>
+            
+            <div class="userpost">
+                <p>Placeholder for current Users posts</p>
+            </div>
+            <div class="userpost">
+                <p>Placeholder for current Users posts</p>
+            </div>
+
+            <h4 style="text-align: left"> Create a Post:</h4>
+
+            <div id="postsubmission">
+
+                <label  for="dept">Which department are you apart of?</label>
+
+                <select name="dept" id="dept">
+                    <option style="display:none;">Select a Deptartment</option>
+                    <option value="finance">Finance</option>
+                    <option value="humanresources">Human Resources</option>
+                    <option value="informationtechnology">Information Technology</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="operations">Operations</option>
+                </select>
+
+                <label for="issue">What is the main issue at hand?</label>
+                <input type="text" id="issue" name="issue">
+
+                <label for="feedback">What is a solution that may resolve the issue?</label>
+                <textarea style="resize: none" id="feedback" name="feedback" rows="5" cols="50"></textarea>
+
+                <button id="submitpostbutton" onclick="post">Submit Post</button>
+
+            </div>
+
+        </div>
+
+       
+    </div>
+    
+    
+    <div class="column">
+        <div id="deptselect">
+            <input type="checkbox" id="finance" name="finance" value="Finance" checked>
+            <label for="Finance"> Finance</label>
+            <input type="checkbox" id="humanresources" name="humanresources" value="Human Resources" checked>
+            <label for="humanresources"> Human Resources</label>
+            <input type="checkbox" id="informationtechnology" name="informationtechnology" value="Information Technology" checked>
+            <label for="informationtechnology"> Info. Tech</label><br>
+
+            <input type="checkbox" id="marketing" name="marketing" value="Marketing" checked>
+            <label for="marketing"> Marketing</label>
+            <input type="checkbox" id="operations" name="operations" value="Operations" checked>
+            <label for="operations"> Operations</label><br>
+
+            <button id="sortbutton" onclick="short"> Sort</button>
+
+        </div>
+
+        <div class="postfeed">
+            <h2>Placeholder for All users feedback-feed.</h2>
+        </div>
+        <div class="postfeed">
+            <h2>Placeholder for All users feedback-feed.</h2>
+        </div>
+        <div class="postfeed">
+            <h2>Placeholder for All users feedback-feed.</h2>
+        </div>
+    </div>
+
+ 
+</div> -->
 
 </body>
 
