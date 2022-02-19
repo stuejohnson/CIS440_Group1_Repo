@@ -8,6 +8,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" type="text/css">
     <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="http.js"></script>
+    <script>
+        let i = sessionStorage.getItem('loggedInUser');
+        console.log(JSON.parse(i));
+
+        window.onload = printAllPosts;
+    </script>
+    <style>
+        .usersposts{
+            margin: auto;
+            width: 70%
+        }
+
+        .usersposts *{
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        h3 {
+            text-align: left;
+        }
+        .usersposts {
+            border: 2px dotted red;
+            padding: 10px;
+            background-color: #e6dddd; 
+            margin-bottom: 20px;
+        }
+
+        .likebutton {
+            background-color: transparent;
+            border: red dotted;
+        }
+    </style>
 </head>
 
 
@@ -53,7 +86,7 @@
                 </div>
                 <div class="col-md-11 offset-md-1">
                     <span id="postTitle" class="col-md-1 ">Post title</span>
-                    <span id="date" class="col-md-1 offset-md-9">Dept: HR</span>
+                    <span id="dept" class="col-md-1 offset-md-9">Dept: HR</span>
                     <span id="postDate" class="col-md-1 float-end">01/01/2022</span><br>
                 </div>
                 <div class="col-md-11 offset-md-1">

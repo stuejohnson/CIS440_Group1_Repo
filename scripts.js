@@ -10,8 +10,27 @@ function logOut(){
     window.location.href = "login.html";
 }
 
+function createPostPage(){
+    console.log("loading create Post Page");
+    window.location.href = "createPost.html";
+}
+
+function loadLandingPage(){
+    window.location.href = "landingPage.html"
+}
+
+function loadLoginPage() {
+    window.location.href = "login.html"
+}
+
+
+function welcome() {
+    let activeUser = sessionStorage.getItem('loggedInUser');
+    document.getElementById('name').innerHTML() = activeUser.username;
+
+}
+
 function login(){
-    
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 
@@ -34,49 +53,21 @@ function login(){
         }
     })
     document.getElementsByTagName("span").value = "Incorrect Username/Password,<br> Please Try again.";
-
 }
 
-function createPostPage(){
-    console.log("loading create Post Page");
-    window.location.href = "createPost.html";
-}
-
-function submitPost(){
-    // TODO
-}
-
-function loadLandingPage(){
-    window.location.href = "landingPage.html"
-}
-
-function loadLoginPage() {
-    window.location.href = "login.html"
-}
-
-
-function welcome() {
-    
-    let activeUser = sessionStorage.getItem('loggedInUser');
-    document.getElementById('name').innerHTML() = activeUser.username;
-
-}
-
-
-function printUsersPosts (){
-
+// On Landing page to show all posts
+function printAllPosts(){
     let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
-    sendHttpRequest('GET', `/api/getPost/ownerId/${owner.id}`, null, function (status, response) {
-        // sessionStorage.setItem('activeUsersPosts', JSON.stringify(response));
-        
+    console.log('owner:' + owner);
+    sendHttpRequest('GET', '/api/getPosts', null, function (status, response) {
         console.log(status);
-        // 
-        // && loggedInUser.username == response.author
-        if(status === 200 ){
-            
+
+        if(status === 200 && owner != null){
             console.log(status);
             console.log(response.author);
+            // TODO: filters, all departments is default and by date is default
 
+            // for loop nested inside filters once filter is applied
             for (let i=0; response.length; i++ ){
                 var div = document.createElement("div");
                 div.setAttribute('class', 'usersposts');
@@ -97,16 +88,15 @@ function printUsersPosts (){
 
         }else{
             console.log('oops');
+            loadLoginPage();
         }
     })   
 }
 
 
-
-// On Landing page to show all posts
-function printAllPosts (){
-    let author = JSON.parse(sessionStorage.getItem('loggedInUser'));
-    sendHttpRequest('GET', '/api/getPosts', null, function (status, response) {
+function printUsersPosts (){
+    let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    sendHttpRequest('GET', `/api/getPosts/ownerId/${owner.id}`, null, function (status, response) {
         // sessionStorage.setItem('activeUsersPosts', JSON.stringify(response));
         
         console.log(status);
@@ -117,7 +107,7 @@ function printAllPosts (){
             console.log(status);
             console.log(response.author);
 
-            for (let i=0; response.length; i++ ){
+            for (let i=0; response.length; i++){
                 var div = document.createElement("div");
                 div.setAttribute('class', 'usersposts');
                 
@@ -142,8 +132,6 @@ function printAllPosts (){
 }
 
 // delete post= param id
-
-
 function deletePost(clickedButton){
     let number = clickedButton;
     let post = document.getElementsByClassName("usersposts");
@@ -160,7 +148,7 @@ function likePost(buttonPressed){
 
     let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
     console.log(owner);
-    sendHttpRequest('GET', `/api/getPost/ownerId/${owner.id}`, null, function (status, response) {
+    sendHttpRequest('GET', `/api/getPosts/ownerId/${owner.id}`, null, function (status, response) {
         // sessionStorage.setItem('activeUsersPosts', JSON.stringify(response));
         
         loggedInUser = sessionStorage.getItem('loggedInUser');
@@ -210,29 +198,10 @@ function unlikePost(buttonPressed){
         loggedInUser = sessionStorage.getItem('loggedInUser');
         console.log(status);
         console.log(loggedInUser);
-        // 
-        // 
+
         if(status === 200 && loggedInUser.username == response.author){
             console.log(status);
             console.log(response);
-    // let response1 = [   
-    //     {
-    //     author: "Test",
-    //     subject: "I don't like this aspect of working", 
-    //     description: "This is what I think we could do to improve the situation. First Off, I think things should start changing around here.",
-    //     department: "IT",
-    //     date: "16 Feb 2022",
-    //     rating: 42},
-
-    //     {
-    //     author: "Test2",
-    //     subject: "This is another Subject of complaint", 
-    //     description: "This is what I think we could do to improve the situation. I think that this or that, or even this would improve the situation at hand.",
-    //     department: "Marketing",
-    //     date: "04 Jan 2022",
-    //     rating: 29},
-    // ];
-
 
         let number = buttonPressed;
         let post = document.getElementsByClassName("usersposts");
