@@ -7,6 +7,7 @@ function loadAccountPage(){
 
 function logOut(){
     console.log("logged out account");
+    alert('You have successfully logged out');
     window.location.href = "login.html";
 }
 
@@ -27,14 +28,26 @@ function loadLoginPage() {
 function welcome() {
     let activeUser = sessionStorage.getItem('loggedInUser');
     document.getElementById('name').innerHTML() = activeUser.username;
+}
 
+function checkLoginStatus() {
+    let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    if (owner == null){
+        console.log("not logged in");
+        window.location.href = "login.html";
+    }
 }
 
 function login(){
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 
-    sendHttpRequest('POST', '/api/login', {username, password}, function (status, response) {
+    console.log(username + "," + password);
+
+    if (username == '' || password == ''){
+        alert("Incorrect Username/Password, Please Try again.");
+    } else{
+        sendHttpRequest('POST', '/api/login', {username, password}, function (status, response) {
         if(status === 200){
             console.log(status);
             console.log(response);
@@ -53,22 +66,24 @@ function login(){
         }
     })
     document.getElementsByTagName("span").value = "Incorrect Username/Password,<br> Please Try again.";
+    }
 }
 
 // On Landing page to show all posts
 function printAllPosts(){
     let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
-    console.log('owner:' + owner);
     sendHttpRequest('GET', '/api/getPosts', null, function (status, response) {
         console.log(status);
 
         if(status === 200 && owner != null){
             console.log(status);
             console.log(response.author);
-            // TODO: filters, all departments is default and by date is default
+            
+            var department = document.getElementById('departmentDropdown').value;
 
-            // for loop nested inside filters once filter is applied
-            for (let i=0; response.length; i++ ){
+            if (department == 'all'){
+                console.log('all posts printed');
+                for (let i=0; response.length; i++ ){
                 var div = document.createElement("div");
                 div.setAttribute('class', 'usersposts');
                 
@@ -84,11 +99,32 @@ function printAllPosts(){
                         <button type="text" id="${i}" onclick="deletePost(this.id)"> Delete</button>   
                     </p>`; 
                 document.body.appendChild(div);
-            }
+                }
+            } else {
+                console.log(department + "posts printed");
+                for (let i=0;response.length;i++){
+                    var div = document.createElement("div");
+                    div.setAttribute('class', 'usersposts');
 
+                    if (response[i].null === department){
+                        div.innerHTML = `
+                            <h3>${response[i].title}</h3>
+                            <p>${response[i].content}</p><br>
+                            <p>
+                                ${response[i].date}&emsp;&emsp;
+                                // <i>Dept: </i>${response[i].null}&emsp;&emsp;
+                                <input type="button" id=${i} onclick="likePost(this.id)" value="&#128077;">&emsp;
+                                <i>Likes: </i>${response[i].rating}&emsp;&emsp;
+
+                                <button type="text" id="${i}" onclick="deletePost(this.id)"> Delete</button>   
+                            </p>`; 
+                        document.body.appendChild(div);
+                    }
+                }
+            }
         }else{
-            console.log('oops');
-            loadLoginPage();
+            console.log('bad response or not logged in');
+            loadLoginPage();    
         }
     })   
 }
@@ -124,7 +160,6 @@ function printUsersPosts (){
                     </p>`; 
                 document.body.appendChild(div);
             }
-
         }else{
             console.log('oops');
         }
@@ -144,8 +179,6 @@ function deletePost(clickedButton){
 
 // .updateRating/{id}
 function likePost(buttonPressed){
-
-
     let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
     console.log(owner);
     sendHttpRequest('GET', `/api/getPosts/ownerId/${owner.id}`, null, function (status, response) {
@@ -154,18 +187,15 @@ function likePost(buttonPressed){
         loggedInUser = sessionStorage.getItem('loggedInUser');
         console.log(status);
         console.log(loggedInUser);
-        // 
-        // 
+
         if(status === 200 && loggedInUser.username == response.author){
             
         console.log(status);
         console.log(response);
 
-
         let number = buttonPressed;
         let post = document.getElementsByClassName("usersposts");
         let likedPost;
-    
         
         likedPost = post[number];
         likedPost.innerHTML= `
@@ -183,11 +213,8 @@ function likePost(buttonPressed){
         }else {
             console.log('Not Logged');
         }
-
     })
-    
-    // likedPost.getElementsByTagName('input').style.backgroundColor = "green";
-    
+    // likedPost.getElementsByTagName('input').style.backgroundColor = "green"; 
 }
 
 function unlikePost(buttonPressed){
@@ -224,6 +251,32 @@ function unlikePost(buttonPressed){
         console.log(`${likedPost}`);
         } else {
             console.log("unable");
+        }
+    })
+}
+
+
+function submitPost(){
+    var postDate = new Date().toJSON().slice(0,10);
+    var postInfo = {title: document.getElementById('title').value, content: document.getElementById('feedback').value /*, department: document.getElementByID('departmentDropdown').value, date: postDate*/};
+    let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
+
+    sendHttpRequest('POST', '/api/addPost', postInfo, function (status, response) {
+        if(status === 200 && owner != null){
+            console.log(status);
+            console.log(response);
+            console.log("User's Name is: " + response.name);
+        
+            let userAttempt = {username: username, password: password};
+            JSON.stringify(userAttempt);
+
+            // if(userAttempt === response.)
+            sessionStorage.setItem('loggedInUser', JSON.stringify(response));
+            window.location.href = "index.html";
+            // activeUser = sessionStorage.getItem('loggedInUser');
+        }else{
+            console.log('bad response or not logged in');
+            loadLoginPage(); 
         }
     })
 }
