@@ -14,6 +14,7 @@
         console.log(JSON.parse(i));
 
         window.onload = printAllPosts;
+        window.onload = checkLoginStatus;
     </script>
     <style>
         .usersposts{
@@ -43,9 +44,8 @@
     </style>
 </head>
 
-
+<!--CANNOT ACCESS DIRECTLY UNLESS LOGGED IN-->
 <body>
-    
     <div id="homeRibbon" class="container-fluid sticky-top">
         <div class="row">
             <div class="col-1 float-start">
@@ -57,8 +57,9 @@
             </div>       
         </div>  
         <div class="row">
-            <select class="col-1 offset-md-4" name="dept" id="dept">
-                <option style="display:none;">Select a Deptartment</option>
+            <select class="col-1 offset-md-4" name="dept" id="departmentDropdown">
+                <option style="display:none;" value="all">All Departments</option>
+                <option style="display:none;" value="general">Whole Company/General</option>
                 <option value="finance">Finance</option>
                 <option value="humanresources">Human Resources</option>
                 <option value="informationtechnology">Information Technology</option>
@@ -66,7 +67,6 @@
                 <option value="operations">Operations</option>
             </select>
             <select class="col-1" name="filter" id="filter">
-                <option value="none">None</option>
                 <option value="Date">By Date</option>
                 <option value="Vote">By Vote</option>
             </select>
