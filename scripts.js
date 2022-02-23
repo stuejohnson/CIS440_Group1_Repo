@@ -49,7 +49,8 @@ function login(){
     if (username == '' || password == ''){
         alert("Incorrect Username/Password, Please Try again.");
     } else{
-        sendHttpRequest('POST', '/api/login', {username, password}, function (status, response) {
+        sendHttpRequest('POST', '/api/login', {username, password}, function (status, r) {
+            let response = JSON.parse(r);
         if(status === 200){
             console.log(status);
             console.log(response);
@@ -74,7 +75,17 @@ function login(){
 // On Landing page to show all posts
 function printAllPosts(){
     let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
-    sendHttpRequest('GET', '/api/getPosts', null, function (status, response) {
+    let args = new Object;
+    let user = {};
+    if (document.getElementById('filter').value == "Vote"){
+        args.sortBy = "rating";
+        args.sortOrder = "descending";
+    } else {
+        args.sortBy = "date";
+        args.sortOrder = "descending";
+    }
+    
+    sendHttpRequest('GET', '/api/getPosts', args, function (status, response) {
         console.log(status);
 
         if(status === 200 && owner != null){
@@ -93,14 +104,14 @@ function printAllPosts(){
                     <h3>${response[i].title}</h3>
                     <p>${response[i].content}</p><br>
                     <p>
-                        ${response[i].date}&emsp;&emsp;
+                        ${response[i].date.slice(0,10)}&emsp;&emsp;
                         // <i>Dept: </i>${response[i].null}&emsp;&emsp;
                         <input type="button" id=${i} onclick="likePost(this.id)" value="&#128077;">&emsp;
                         <i>Likes: </i>${response[i].rating}&emsp;&emsp;
 
                         <button type="text" id="${i}" onclick="deletePost(this.id)"> Delete</button>   
                     </p>`; 
-                document.body.appendChild(div);
+                document.getElementById('feed').appendChild(div);
                 }
             } else {
                 console.log(department + "posts printed");
@@ -319,10 +330,9 @@ function deletepost() {
 
 
 function submitPost(){
-    var postDate = new Date().toJSON().slice(0,10);
-    var postInfo = {title: document.getElementById('title').value, content: document.getElementById('feedback').value /*, department: document.getElementByID('departmentDropdown').value, date: postDate*/};
+    let username, password;
     let owner = JSON.parse(sessionStorage.getItem('loggedInUser'));
-
+    var postInfo = {ownerId: 100, title: document.getElementById('title').value, content: document.getElementById('feedback').value, rating: 0,  department: document.getElementById('departmentDropdown').value, date: new Date()};
     sendHttpRequest('POST', '/api/addPost', postInfo, function (status, response) {
         if(status === 200 && owner != null){
             console.log(status);
@@ -334,12 +344,20 @@ function submitPost(){
 
             // if(userAttempt === response.)
             sessionStorage.setItem('loggedInUser', JSON.stringify(response));
-            window.location.href = "index.html";
+            window.location.href = "landingPage.html";
             // activeUser = sessionStorage.getItem('loggedInUser');
         }else{
             console.log('bad response or not logged in');
             loadLoginPage(); 
         }
     })
+}
+
+function filterPosts(){
+    var feed = document.getElementById('feed');
+    while(feed.firstChild){
+        feed.removeChild(feed.firstChild);
+    }
+    printAllPosts();
 }
 
