@@ -92,9 +92,9 @@ function printAllPosts(){
             console.log(status);
             console.log(response.author);
             
-            var department = document.getElementById('departmentDropdown').value;
+            var departmentFilter = document.getElementById('departmentDropdown').value;
 
-            if (department == 'all'){
+            if (departmentFilter == 'all'){
                 console.log('all posts printed');
                 for (let i=0; response.length; i++ ){
                 var div = document.createElement("div");
@@ -105,33 +105,29 @@ function printAllPosts(){
                     <p>${response[i].content}</p><br>
                     <p>
                         ${response[i].date.slice(0,10)}&emsp;&emsp;
-                        // <i>Dept: </i>${response[i].null}&emsp;&emsp;
+                        // <i>Dept: </i>${response[i].department}&emsp;&emsp;
                         <input type="button" id=${i} onclick="likePost(this.id)" value="&#128077;">&emsp;
-                        <i>Likes: </i>${response[i].rating}&emsp;&emsp;
-
-                        <button type="text" id="${i}" onclick="deletePost(this.id)"> Delete</button>   
+                        <i>Likes: </i>${response[i].rating}&emsp;&emsp;  
                     </p>`; 
                 document.getElementById('feed').appendChild(div);
                 }
             } else {
-                console.log(department + "posts printed");
                 for (let i=0;response.length;i++){
                     var div = document.createElement("div");
                     div.setAttribute('class', 'usersposts');
+                    console.log(response);
 
-                    if (response[i].null === department){
+                    if (response[i].department === departmentFilter){
                         div.innerHTML = `
                             <h3>${response[i].title}</h3>
                             <p>${response[i].content}</p><br>
                             <p>
                                 ${response[i].date}&emsp;&emsp;
-                                // <i>Dept: </i>${response[i].null}&emsp;&emsp;
+                                // <i>Dept: </i>${response[i].department}&emsp;&emsp;
                                 <input type="button" id=${i} onclick="likePost(this.id)" value="&#128077;">&emsp;
-                                <i>Likes: </i>${response[i].rating}&emsp;&emsp;
-
-                                <button type="text" id="${i}" onclick="deletePost(this.id)"> Delete</button>   
+                                <i>Likes: </i>${response[i].rating}&emsp;&emsp;  
                             </p>`; 
-                        document.body.appendChild(div);
+                        document.getElementById('feed').appendChild(div);
                     }
                 }
             }
@@ -351,6 +347,7 @@ function submitPost(){
             loadLoginPage(); 
         }
     })
+    console.log("postInfo" + JSON.stringify(postInfo));
 }
 
 function filterPosts(){
