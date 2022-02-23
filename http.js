@@ -20,7 +20,7 @@ const HttpClient = function () {
             // do something to response
             //console.log(xhr.responseText);
             if(aCallback != null)
-                aCallback(xhr.status, JSON.parse(xhr.response))
+                aCallback(xhr.status, xhr.response)
         };
 
         xhr.open("POST", aUrl, true);

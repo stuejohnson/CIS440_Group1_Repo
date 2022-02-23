@@ -11,10 +11,9 @@
     <script type="text/javascript" src="http.js"></script>
     <script>
         let i = sessionStorage.getItem('loggedInUser');
-        console.log(JSON.parse(i));
+        console.log("loggedInUser" + JSON.parse(i));
 
-        window.onload = printAllPosts;
-        window.onload = checkLoginStatus;
+        window.onload = checkLoginStatus();
     </script>
     <style>
         .usersposts{
@@ -66,7 +65,7 @@
                 <option value="marketing">Marketing</option>
                 <option value="operations">Operations</option>
             </select>
-            <select class="col-1" name="filter" id="filter">
+            <select class="col-1" name="filter" id="filter" onchange="filterPosts()">
                 <option value="Date">By Date</option>
                 <option value="Vote">By Vote</option>
             </select>
@@ -78,7 +77,7 @@
 
     <div class="container-fluid">
         <div id="feed" class="row">
-            <div class="post col-md-12">
+             <!-- <div class="post col-md-12">
                 <div id="votingContainer" class="voteClass col-md-1 float-start"> 
                     <span id="upVote" onclick="upvote()">&#128077;</span><br>
                     <span id="voteCount">57</span><br>
@@ -99,11 +98,14 @@
                         Nulla semper metus quis eros tempor tempus. Ut ac lacus molestie, sagittis massa mollis, dapibus lectus. Vivamus vel ullamcorper justo. Integer nec faucibus magna, vel imperdiet mi. Vestibulum nec tincidunt mauris. Nam feugiat rhoncus tortor, id pulvinar magna pretium id. Curabitur gravida mi id sem convallis, vel venenatis tellus rutrum. Integer libero dui, fringilla id mi sed, consectetur gravida ante. Donec eget velit aliquet, laoreet mauris porta, feugiat odio. Cras vel porttitor odio. Curabitur laoreet ipsum augue, in lacinia libero volutpat et.
                         
                         Aenean et dolor a nunc imperdiet mollis sed a ex. Vestibulum vitae luctus ipsum. Sed vel rhoncus elit. Nullam ex lacus, scelerisque quis nisi eget, elementum eleifend purus. Suspendisse mi purus, elementum ac pulvinar sed, gravida sit amet est. Maecenas vel mi ac mauris sodales tempor. Cras in rutrum mi, vitae malesuada tortor. Donec eget orci nec dui convallis dapibus sed ut felis. Proin tincidunt sodales metus eget volutpat. Mauris sollicitudin pulvinar sapien, quis hendrerit sapien convallis sit amet. Proin vitae sapien nisl.</span>
-                </div>
+                </div> 
                 
-            </div>
+            </div> -->
         
         </div> 
     </div>
 </body>
+<script>
+    printAllPosts();
+</script>
 </html>
