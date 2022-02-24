@@ -1,10 +1,69 @@
 /* CSS for project one- group one */
+.usersposts{
+    margin: auto;
+    width: 70%
+}
+
+.usersposts *{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.deletedPost {
+    text-align: center;
+    font-size: 14pt;
+    font-family: sans-serif;
+    font-style: italic;
+}
+h1 {
+    margin-right: 60pt;
+    margin-top: 20px;
+    margin-bottom: 15pt;
+}
+
+.usersposts {
+    border: 2px dotted red;
+    padding: 10px;
+    background-color: #e6dddd; 
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+.likebutton {
+    background-color: transparent;
+    border: red dotted;
+}
+
+#feed {
+    font-family: sans-serif;
+    
+}
+
+.anonymousstatement {
+    margin-right: 60pt;
+    font-family: sans-serif;
+    font-size: 15pt;
+    text-align: center;
+}
+.title {
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.description {
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+.infoBar {
+    font:tan;
+    text-align: end;
+}
+/* Related to Posts are above */
 
 
 
-
-
-/* ///////////////////////////////////////////// */
 .row {
     width: 100%;
     margin: auto;
@@ -110,9 +169,7 @@ margin-top: 8px;;
     margin-bottom: 5px;
     margin-left: 10px;
 }
-.anonymousstatement {
-    margin-right: 15px;
-}
+
 
 #homeLink {
 
@@ -192,7 +249,7 @@ margin-top: 8px;;
 }
 
 .post {
-    background-color: red;
+    background-color: #e6dddd;
     float: left;
     border: 1px solid black;
     margin: 5px;
