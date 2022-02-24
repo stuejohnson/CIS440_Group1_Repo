@@ -11,37 +11,11 @@
     <script type="text/javascript" src="http.js"></script>
     <script>
         let i = sessionStorage.getItem('loggedInUser');
-        console.log(JSON.parse(i));
+        console.log("loggedInUser" + JSON.parse(i));
 
-        window.onload = printAllPosts;
-        window.onload = checkLoginStatus;
+        window.onload = checkLoginStatus();
     </script>
-    <style>
-        .usersposts{
-            margin: auto;
-            width: 70%
-        }
-
-        .usersposts *{
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        h3 {
-            text-align: left;
-        }
-        .usersposts {
-            border: 2px dotted red;
-            padding: 10px;
-            background-color: #e6dddd; 
-            margin-bottom: 20px;
-        }
-
-        .likebutton {
-            background-color: transparent;
-            border: red dotted;
-        }
-    </style>
+    
 </head>
 
 <!--CANNOT ACCESS DIRECTLY UNLESS LOGGED IN-->
@@ -57,16 +31,16 @@
             </div>       
         </div>  
         <div class="row">
-            <select class="col-1 offset-md-4" name="dept" id="departmentDropdown">
-                <option style="display:none;" value="all">All Departments</option>
-                <option style="display:none;" value="general">Whole Company/General</option>
-                <option value="finance">Finance</option>
-                <option value="humanresources">Human Resources</option>
-                <option value="informationtechnology">Information Technology</option>
-                <option value="marketing">Marketing</option>
-                <option value="operations">Operations</option>
+            <select class="col-1 offset-md-4" name="dept" id="departmentDropdown" onchange="filterPosts()">
+                <option value="all">All Departments</option>
+                <option value="general">Whole Company/General</option>
+                <option value="Finance">Finance</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Operations">Operations</option>
             </select>
-            <select class="col-1" name="filter" id="filter">
+            <select class="col-1" name="filter" id="filter" onchange="filterPosts()">
                 <option value="Date">By Date</option>
                 <option value="Vote">By Vote</option>
             </select>
@@ -78,7 +52,7 @@
 
     <div class="container-fluid">
         <div id="feed" class="row">
-            <div class="post col-md-12">
+             <!-- <div class="post col-md-12">
                 <div id="votingContainer" class="voteClass col-md-1 float-start"> 
                     <span id="upVote" onclick="upvote()">&#128077;</span><br>
                     <span id="voteCount">57</span><br>
@@ -99,11 +73,14 @@
                         Nulla semper metus quis eros tempor tempus. Ut ac lacus molestie, sagittis massa mollis, dapibus lectus. Vivamus vel ullamcorper justo. Integer nec faucibus magna, vel imperdiet mi. Vestibulum nec tincidunt mauris. Nam feugiat rhoncus tortor, id pulvinar magna pretium id. Curabitur gravida mi id sem convallis, vel venenatis tellus rutrum. Integer libero dui, fringilla id mi sed, consectetur gravida ante. Donec eget velit aliquet, laoreet mauris porta, feugiat odio. Cras vel porttitor odio. Curabitur laoreet ipsum augue, in lacinia libero volutpat et.
                         
                         Aenean et dolor a nunc imperdiet mollis sed a ex. Vestibulum vitae luctus ipsum. Sed vel rhoncus elit. Nullam ex lacus, scelerisque quis nisi eget, elementum eleifend purus. Suspendisse mi purus, elementum ac pulvinar sed, gravida sit amet est. Maecenas vel mi ac mauris sodales tempor. Cras in rutrum mi, vitae malesuada tortor. Donec eget orci nec dui convallis dapibus sed ut felis. Proin tincidunt sodales metus eget volutpat. Mauris sollicitudin pulvinar sapien, quis hendrerit sapien convallis sit amet. Proin vitae sapien nisl.</span>
-                </div>
+                </div> 
                 
-            </div>
+            </div> -->
         
         </div> 
     </div>
 </body>
+<script>
+    printAllPosts();
+</script>
 </html>
